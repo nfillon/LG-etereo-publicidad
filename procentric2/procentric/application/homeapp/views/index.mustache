@@ -1,0 +1,109 @@
+{{{ root_html_tag }}}
+
+<head>
+
+  {{{ headers }}}
+
+  <script type="text/javascript" src="/hcap"></script>
+  <script type='text/javascript'>
+    var templateResponse = ''; // INFORMACION A MOSTRAR EN LA HOMEAPP
+    var volume = 20; // VOLUMEN DEFECTO
+    var restaurant = new Object(); // OBJETO PARA ENVIAR RESERVA DE MESA
+    restaurant.restaurant = '';
+    restaurant.tableSeat = 0;
+    restaurant.schedule = '';
+    restaurant.orderCompleted = false;
+    var roomService = new Object(); // OBJETO PARA LA RESERVA DE COMIDAS
+    roomService.restaurant = '';
+    roomService.schedule = '';
+    roomService.order = [];
+    roomService.orderCompleted = false;
+    var currentChannelIndex = 0;
+    var require = {
+      baseUrl: '',
+      paths: {
+        {{{ application_id }}}: 'static/script',
+        antie : 'tal/static/script'
+      },
+      priority: [],
+      callback: function() {}
+    };
+  </script>
+
+  {{> imports}}
+
+  <script>
+    var antie = {
+      framework: {
+        deviceConfiguration: {{{ device_configuration }}}
+      }
+    };
+  </script>
+
+</head>
+
+<body style='background: #000;'>
+  {{{ extra_body }}}
+
+  <div id='static-loading-screen'>
+    <p>Application is loading...</p>
+  </div>
+
+  <div id="app" class="display-none"></div>
+
+  <div id="log_area" style="display: none;"></div>
+
+  <script type='text/javascript'>
+    function log(text) {
+       $('#log_area').show();
+      $('#log_area').append('<p>' + text + '</p>');
+    }
+
+    require(
+      ['homeapp/appui/app'],
+      function(Application) {
+        var onReady = function() {
+          var staticLoadingScreen = document.getElementById('static-loading-screen');
+          staticLoadingScreen.parentNode.removeChild(staticLoadingScreen);
+        };
+
+        var templateJson = function() {
+            var baseUrl = 'http://192.168.0.17:8090/';
+            $.ajax({
+                url: baseUrl + 'iptv-info?tv_model=55LX774H-UA',
+                type: "GET",
+                datatype: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    templateResponse = result.data;
+                    templateResponse.templateName = '6';
+                    templateResponse.channels = templateResponse.channels.map(function(channel) {
+                      channel.image = channel.image.replace('192.168.100.251', 'localhost:8090'); 
+                      return channel;
+                    });
+                    console.log(templateResponse);
+                    
+//                    templateResponse.menuOptions = templateResponse.menuOptions.filter(function(option) { return ['television', 'guestcast', 'hotelservice', 'language'].includes(option.name) }); 
+//                    console.log(templateResponse);
+
+                    var app = new Application(
+                            document.getElementById('app'),
+                            'static/style/',
+                            'static/img/',
+                            onReady
+                    );
+                },
+                error: function(result){
+                    log(result);
+                }
+            });
+        };
+
+        templateJson();
+
+      }
+    );
+  </script>
+</body>
+
+</html>

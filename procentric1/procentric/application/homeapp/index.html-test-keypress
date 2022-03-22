@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <script type='text/javascript' src='lib/jquery.js'></script>
+    <link rel='stylesheet' href='static/style/base.css' />
+  </head>
+  <body style='background: #000;'>
+
+    <div id="log_area"></div>
+
+    <script type='text/javascript'>
+            function log(text) {
+              $('#log_area').append('<p>' + text + '</p>');
+            }
+
+            document.addEventListener("keydown", function(inEvent){
+              if (window.event) { 
+                log(window.event.keyCode);
+              } else if(inEvent.which) { 
+                log(inEvent.which);
+              } 
+            });
+    </script>
+
+  </body>
+</html>

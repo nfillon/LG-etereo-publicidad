@@ -1,0 +1,152 @@
+#app {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: url(../img/bacground-t2.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#mainMenuList {
+    background: transparent;
+    padding: 0px;
+    margin: auto;
+    width: fit-content;
+    min-width: 80%;
+    max-width: 100%;
+    display: table;
+}
+
+#guideButton {
+    background: url(../img/btn-background-t2.png);
+    display: inline-flex;
+    padding: 20px 40px !important;
+    width: 130px;
+    border-radius: 3px;
+}
+#mainMenuList #iconimage img {
+    width: 25px;
+    height: 25px;
+}
+
+#sliderContainer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 23%;
+    padding: 5px 0px;
+    background-color: rgba(183, 181, 179, 0.9);
+}
+
+#carouselComponent2 div[id^='channel-'] {
+    margin: 15px;
+}
+
+#carouselComponent2 .listitem {
+    /*border: 8px solid transparent;*/
+    background-color: transparent;
+}
+
+#carouselComponent2 .buttonFocussed #guideButton{
+    background-color: transparent;
+    box-shadow: gray !important;
+    display: block;
+}
+
+span[id^='label-'] {
+    display: none;
+}
+
+#carouselComponent2 .buttonFocussed span[id^='label-'] {
+    display: block !important;
+}
+
+#carouselComponent2 .buttonFocussed span[id^='inner-label-'] {
+    display: none !important;
+}
+
+span[id^='inner-label'] {
+    padding-left: 15px;
+    padding-top: 5px;
+    font-size: 10px;
+    color: #fefefe;
+}
+
+span[id^='label-'] {
+    font-size: 14px;
+    color: #fefefe;
+    padding-top: 3px;
+}
+
+#headerContainer {
+    display: block;
+    padding: 10px;
+    background: rgba(183, 181, 179, 0.9);
+}
+
+#welcomeLabel {
+    display: inline-flex;
+    padding: 10px;
+    text-align: left;
+    background: transparent;
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+}
+
+#guestLabel {
+    padding-left: 10px;
+    color: white;
+}
+
+#timeLabel {
+    float: right;
+    padding-right: 2%;
+    padding-left: 0px;
+    padding-top: 10px;
+}
+
+#navbarContainer #logoImage{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    bottom: 40%;
+    padding-left: 45%;
+}
+
+#carouselComponent {
+    background: url(../img/bacground-t2.jpg) no-repeat center center fixed !important;
+    margin: 0% 4%;
+    box-shadow: none;
+    height: 93%;
+}
+
+#carouselComponent2 {
+    margin: 0% 5%;
+    background: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.carouselwidgetstrip {
+    height: 90%;
+}
+
+#guestLabel {
+    display: block;
+    font-size: 25px;
+    font-weight: 100;
+    text-transform: capitalize;
+    font-family: serif;
+    color: #d0cecc;
+}
+
+#playerContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

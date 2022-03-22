@@ -1,0 +1,247 @@
+{{{ root_html_tag }}}
+
+    <head>
+
+        {{{ headers }}}
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.7/socket.io.min.js"></script> 
+        <script type="text/javascript" src="/hcap"></script>
+        <script type='text/javascript'>
+            var GUESTCAST_BUTTON_SPACE = 2;
+            var templateResponse = ''; // INFORMACION A MOSTRAR EN LA HOMEAPP
+            var volume = 20; // VOLUMEN DEFECTO
+            var restaurant = new Object(); // OBJETO PARA ENVIAR RESERVA DE MESA
+            restaurant.restaurant = '';
+            restaurant.tableSeat = 0;
+            restaurant.schedule = '';
+            restaurant.orderCompleted = false;
+            var roomService = new Object(); // OBJETO PARA LA RESERVA DE COMIDAS
+            roomService.restaurant = '';
+            roomService.schedule = '';
+            roomService.order = [];
+            roomService.orderCompleted = false;
+            var currentChannelIndex = 0;
+            var require = {
+                baseUrl: '',
+                paths: {
+                    {{{ application_id }}}: 'static/script',
+                    antie: 'tal/static/script'
+                },
+                priority: [],
+                callback: function() {}
+            };
+        </script>
+
+        {{> imports}}
+
+        <script>
+            var antie = {
+                framework: {
+                    deviceConfiguration: {{{ device_configuration }}}
+                }
+            };
+        </script>
+
+    </head>
+
+    <body style='background: #000;'>
+        {{{ extra_body }}}
+
+        <div id='static-loading-screen'>
+            <p>Application is loading...</p>
+        </div>
+
+        <div id="app" class="display-none"></div>
+
+        <div id="log_area" style="display: none;"></div>
+
+        <script type='text/javascript'>
+            function log(text) {
+                $('#log_area').show();
+                $('#log_area').append('<p>' + text + '</p>');
+            }
+
+            require(
+                [
+                    'homeapp/appui/app', 
+                    'homeapp/appui/services/lgservice'
+                ],
+                function(Application, lgService) {
+                    var onReady = function() {
+                        var staticLoadingScreen = document.getElementById('static-loading-screen');
+                        staticLoadingScreen.parentNode.removeChild(staticLoadingScreen);
+                    };
+
+                    var baseUrl = 'http://172.19.50.36/';
+                    var app;
+
+                    var templateJson = function(qrImage) {
+                        $.ajax({
+                            url: baseUrl + 'iptv-info?tv_model=55LX774H-UA',
+                            type: "GET",
+                            datatype: "json",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (result) {
+                                templateResponse = result.data;
+                                templateResponse.templateName = 6;
+                                templateResponse.qrImage = qrImage; 
+
+                                //TODO: temporal
+                                templateResponse.channels = templateResponse.channels.map(function(channel) {
+                                    channel.image = channel.image.replace('http://192.168.100.251/iptv/channel', 'http://hoteles.cast.gocloud1.com/iptv-backend/iptv/HOTELRIAZOR/channel');
+                                    return channel;
+                                });
+
+                                templateResponse.hotelInfos = templateResponse.hotelInfos.map(function(hotelInfo) {
+                                    hotelInfo.image = hotelInfo.image.replace('http://192.168.100.251/iptv/hotel-info', 'http://hoteles.cast.gocloud1.com/iptv-backend/iptv/HOTELRIAZOR/hotel-info');
+                                    return hotelInfo;
+                                });
+/*
+                                templateResponse.menuOptions = templateResponse.menuOptions.filter(function(menuOption) {
+                                    return (menuOption.type != 'INFO');
+                                });
+*/
+                                templateResponse.experiences = [
+                                        { title: '', img: '/static/img/etereo/experiences/experiencia01.jpg' },
+                                        { title: '', img: '/static/img/etereo/experiences/experiencia02.jpg' },
+                                        { title: '', img: '/static/img/etereo/experiences/experiencia03.jpg' }
+                                    ];
+
+                                templateResponse.menuOptions.splice(templateResponse.menuOptions.length - 1, 0, {name: "experiences", type: "EXPERIENCE", appId: "0"});
+
+                                app = new Application(
+                                        document.getElementById('app'),
+                                        'static/style/',
+                                        'static/img/',
+                                        onReady
+                                    );
+                            },
+                            error: function(result){
+                                console.log(result);
+                            }
+                        });
+                    };
+
+                    startQrGenerator();
+
+                    function generateCode(areaName) {
+                        $.ajax({
+                            type: 'GET',
+                            url: baseUrl + 'qr/generate-qr-code-verification',
+                            data: { areaName: areaName, size: 300, background: '#ffffff', foreground: '#000000'  },
+                            async: true,
+                            success: function(response) {
+                                if (app == undefined) {
+                                    templateJson(response.qr);
+                                }
+                                $('#qrImage').html('<img src="data:image/png;base64,'+ response.qr +'" id="qrImage_img">');
+                            }
+                        });
+                    }
+
+                    function startQrGenerator() {
+
+                        $.ajax({
+                            type: "GET",
+                            url: baseUrl + 'indications/me',
+                            success: function(response) {
+                                areaName = response.area_name;
+                                generateCode(areaName);
+
+                                var socket = io('http://172.19.50.10:3000', {
+                                    transports: ['websocket'],
+                                    upgrade: false
+                                });
+
+                                socket.on('connect', function(data) {
+                                    socket.emit('subscribe-to-area', areaName);
+                                });
+
+                                socket.on('reconnect', function(attemptNumber) {
+                                    generateCode(areaName);
+                                });
+
+                                socket.on("new-sender-in-area." + areaName, function(message) {
+                                    $('#myModal').fadeIn('slow', function() {
+                                        setTimeout(function() {
+                                            lgService.goToChannel(44);
+                                            $('#myModal').fadeOut('slow');
+                                        }, 4000);
+                                    });
+                                });
+
+                                socket.on("area-code-generated", function(message) {
+                                    generateCode(areaName);
+                                });
+                            }
+                        });
+                    }
+
+                }
+            );
+
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+//                $('#myModal').fadeIn('slow');
+            });
+        </script>
+
+        <style type="text/css">
+
+            .modal {
+                font-family: SweetSansPro;
+                font-weight: 100;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                opacity: 0.95;
+            }
+
+            .modal-dialog {
+                width: 500px;
+                margin: auto;
+                margin-top: 200px;
+                border: 4px solid #3c4245;
+                padding: 5px;
+            }
+
+            .modal-body {
+                background: #3c4245;
+                padding: 10px;
+                text-align: center;
+            }
+
+            .text-gray { color: #fefefe; font-weight: 100; }
+
+            .text-orange { color: #ad9741; font-weight: 100; }
+
+        </style>
+
+        <div class="modal" id="myModal" style="display: none;">
+            <div class="modal-dialog modal-lg modal-ready-to-cast">
+                <div class="modal-content modal-background">
+                    <div class="modal-body">
+                        <h4 class="text-gray">
+                            <strong>&iexcl;LISTO!</strong><br/>
+                            YA PUEDES DISFRUTAR DE<br/>
+                            TU CONTENIDO  COMO EN<br/>
+                            CASA.
+                        </h4>
+                        <hr class="hr"/>
+                        <h4 class="text-orange">
+                            <strong>GOOD TO GO!</strong><br/>
+                            NOW YOU CAN STREAM<br/>
+                            YOUR CONTENT JUST<br/>
+                            LIKE HOME.
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

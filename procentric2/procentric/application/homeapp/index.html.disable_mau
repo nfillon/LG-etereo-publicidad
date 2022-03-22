@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <script type="text/javascript" src="lib/hcap.js"></script>
+    <script type="text/javascript" src="lib/require.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        hcap.mode.setHcapMode({
+          "mode": hcap.mode.HCAP_MODE_0,
+          "onSuccess": function() {
+             console.log("onSuccess");
+          }, 
+          "onFailure": function(f) {
+            console.log("onFailure : errorMessage = " + f.errorMessage);
+          }
+        });        
+      });
+    </script>
+  </body>
+</html>

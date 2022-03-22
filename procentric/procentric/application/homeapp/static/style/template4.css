@@ -1,0 +1,196 @@
+#app {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: url(../img/bacground-t4.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#navbarContainer {
+    width: 23%;
+    padding: 2%;
+    text-align: center;
+}
+
+#infoContainer2 {
+    width: 100%;
+    position: absolute;
+    top: 3%;
+    bottom: 4%;
+    min-height: 93%;
+}
+
+#carouselComponent {
+    margin: 4px 0% 0% 0%;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    margin-left: 30%;
+    background: rgba(17,17,17,0.8);
+    width: 67%;
+}
+
+#welcomeLabel, #weatherLabel{
+    background: rgba(17,17,17,0.9);
+    font-size: 24px;
+    text-align: center;
+    width: -webkit-fill-available;
+}
+
+#timeLabel {
+    background: rgba(17,17,17,0.9);
+    font-size: 15px;
+    padding: 1%;
+    padding-left: 25%;
+    margin-top: 1%;
+    width: -webkit-fill-available;
+}
+
+#navbarContainer #logoImage {
+    width: 75%;
+    background-color: rgba(17,17,17,0.8);
+}
+
+#sliderContainer .listitem {
+    display: block !important;
+}
+
+
+#mainMenuList {
+    background: rgba(17,17,17,0.8);
+}
+#infoContainer .listitem {
+    display: inline-block !important;
+}
+
+#mainMenuList .button,
+#itemsContainer .button{
+    color: white;
+}
+
+.listitem {
+    border: 4px solid transparent !important;
+    background-color: transparent;
+}
+
+.buttonFocussed {
+    background-color: transparent !important;
+    border-bottom-color: #ffc800 !important;
+}
+
+#languageComponent .buttonFocussed {
+    background-color: #ffc800 !important;
+}
+
+#carouselComponent div[id^='channel-'] {
+    color: white;
+}
+
+.carouselwidgetstrip {
+    height: 95%;
+    padding-left: 6px;
+}
+
+.bgHotelInfo {
+    background: none !important;
+    position: unset;
+}
+
+#languageComponent {
+    width: 67%;
+    height: 97%;
+    margin: 3px 25% 25% 29%;
+    box-shadow: none;
+}
+
+#infoContainer #itemsContainer .listitem {
+    display: block !important;
+}
+
+#infoContainer #itemsContainer .clone {
+    display: none !important;
+}
+
+#itemsContainer {
+    position: absolute;
+    margin-top: 17%;
+    width: 24%;
+    padding: 1% 2%;
+}
+
+#informationContainer {
+    width: 67%;
+    float: right;
+    height: 90%;
+    margin: 2%;
+    margin-top: 0px;
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+    background-color: rgba(17,17,17,0.8);
+}
+
+#hotelservicecomponent .horizontallistmask {
+    overflow: hidden;
+    width: auto;
+    background-color: rgba(17,17,17,0.8);
+    /*padding: 2% 11%;*/
+    /*display: inline-block;*/
+}
+
+#menubar {
+    position: unset !important;
+    white-space: nowrap;
+    padding: 0% 0% 61% 0%;
+    max-height: 148px;
+}
+
+div[id^='appOption'].widget.container.button.listitem.inviewport.clone, /* Caso particular el carousel no carga la clase buttonblurred */
+div[id^='appOption'].buttonBlurred {
+    padding: 8px;
+}
+
+.appContainer {
+    display: inline-flex;
+    width: 100%;
+}
+
+.appContent {
+    width: 50%;
+    padding-left: 1%;
+}
+
+.appImageContainer {
+    text-align: center;
+    padding: 0 2%;
+}
+
+.appImage {
+    width: 100%;
+}
+
+.hotelInfoContainer {
+    display: inline-flex;
+    width: 100%;
+}
+
+.hotelInfoContent {
+    width: 50%;
+    padding-left: 1%;
+}
+
+.hotelInfoImageContainer {
+    text-align: center;
+    margin:2% !important;
+    width: 50% !important;
+    height: auto !important;
+}
+
+.hotelInfoImage {
+    width: 95%;
+    padding: 2%;
+}

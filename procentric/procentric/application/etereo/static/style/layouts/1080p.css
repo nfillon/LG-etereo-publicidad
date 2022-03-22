@@ -1,0 +1,48 @@
+
+/* RESOLUTION SPECIFIC STYLES - 1900px X 1080px */
+/* Application in Center-Middle of Screen (achieved by positioning 50% down from top AND shifting back up to origin by half height) */
+
+#app {
+    position: relative;
+    overflow: hidden;
+    width: 1920px;
+    height: 1080px;
+    /*background: url(../../img/test-pool-background.jpg) no-repeat center center fixed;*/
+    /*background: url(../../img/background.jpg) no-repeat center center fixed;     */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#logoImage, #logoImage_img {
+    width: 200px;
+    height: 200px;
+}
+
+#home-fa-component #mainMenuList {
+    min-width: 60%;
+    width: fit-content;
+    max-width: 100%;
+}
+
+#home-fa-component .button span.label {
+    font-size: 20px;
+}
+
+#carouselComponent div[id^='channel-'] {
+    margin: 8px;
+    width: 100px;
+}
+
+#navbarContainerFA #menubar_mask {
+    width: 75%;
+}
+
+#infoHotelContainer {
+    width: 20%;
+}
+
+.carouselmask {
+    height: 73%;
+}

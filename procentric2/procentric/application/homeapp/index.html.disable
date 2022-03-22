@@ -1,0 +1,282 @@
+<html>
+
+<head>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.7/socket.io.min.js"></script>
+        <script type="text/javascript" src="lib/hcap.js"></script>
+
+        <script type='text/javascript'>
+            var GUESTCAST_BUTTON_SPACE = 1;
+            var templateResponse = ''; // INFORMACION A MOSTRAR EN LA HOMEAPP
+            var volume = 20; // VOLUMEN DEFECTO
+            var restaurant = new Object(); // OBJETO PARA ENVIAR RESERVA DE MESA
+            restaurant.restaurant = '';
+            restaurant.tableSeat = 0;
+            restaurant.schedule = '';
+            restaurant.orderCompleted = false;
+            var roomService = new Object(); // OBJETO PARA LA RESERVA DE COMIDAS
+            roomService.restaurant = '';
+            roomService.schedule = '';
+            roomService.order = [];
+            roomService.orderCompleted = false;
+            var currentChannelIndex = 0;
+            var require = {
+                baseUrl: '',
+                paths: {
+                    homeapp: 'static/script',
+                    antie: 'lib/tal/static/script'
+                },
+                priority: [],
+                callback: function() {}
+            };
+        </script>
+
+  <script type='text/javascript' src='lib/require.js'></script>
+  <script type='text/javascript' src='lib/jquery.js'></script>
+  <link rel='stylesheet' href='static/style/base.css' />
+
+
+        <script>
+            var antie = {
+                framework: {
+                    deviceConfiguration: {
+  "pageStrategy": "html5",
+  "modules": {
+    "base": "antie/devices/browserdevice",
+    "modifiers": [
+      "antie/devices/anim/noanim",
+      "antie/devices/mediaplayer/html5",
+      "antie/devices/mediaplayer/live/none",
+      "antie/devices/data/nativejson",
+      "antie/devices/storage/cookie",
+      "antie/devices/logging/onscreen",
+      "antie/devices/logging/xhr",
+      "antie/devices/logging/jstestdriver",
+      "antie/devices/exit/netcast",
+      "antie/devices/parentalguidance/appdefaultpghandler",
+      "homeapp/modifiers/keymapmodifier"
+    ]
+  },
+  "logging": {
+    "level": "none"
+  },
+  "streaming": {
+    "video": {
+      "mediaURIFormat": "%href%",
+      "supported": [
+        {
+          "protocols": [
+            "http"
+          ],
+          "encodings": [
+            "h264"
+          ],
+          "transferFormat": [
+            "hls",
+            "plain"
+          ],
+          "maximumBitRate": 3600,
+          "maximumVideoLines": 1080
+        }
+      ]
+    },
+    "audio": {
+      "mediaURIFormat": "%href%",
+      "supported": [
+        {
+          "protocols": [
+            "http"
+          ],
+          "encodings": [
+            "aac"
+          ],
+          "maximumBitRate": 192
+        }
+      ]
+    }
+  },
+  "input": {
+    "map": {
+      "13": "ENTER",
+      "37": "LEFT",
+      "38": "UP",
+      "39": "RIGHT",
+      "40": "DOWN",
+      "415": "PLAY",
+      "19": "PAUSE",
+      "413": "STOP",
+      "417": "FAST_FWD",
+      "412": "REWIND",
+      "461": "BACK",
+      "457": "INFO",
+      "458": "GUIDE",
+      "602": "PORTAL",
+      "48": "0",
+      "49": "1",
+      "50": "2",
+      "51": "3",
+      "52": "4",
+      "53": "5",
+      "54": "6",
+      "55": "7",
+      "56": "8",
+      "57": "9"
+    }
+  },
+  "accessibility": {
+    "captions": {
+      "supported": [
+        "application/ttaf+xml"
+      ]
+    }
+  },
+  "layouts": [
+    {
+      "width": 960,
+      "height": 540,
+      "module": "homeapp/appui/layouts/540p",
+      "classes": [
+        "browserdevice540p"
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "module": "homeapp/appui/layouts/720p",
+      "classes": [
+        "browserdevice720p"
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "module": "homeapp/appui/layouts/1080p",
+      "classes": [
+        "browserdevice1080p"
+      ]
+    }
+  ],
+  "networking": {
+    "supportsJSONP": true
+  },
+  "capabilities": [],
+  "statLabels": {
+    "deviceType": "smarttv",
+    "serviceType": "retail",
+    "browserType": "chromium"
+  }
+}
+
+                }
+            };
+        </script>
+
+
+</head>
+
+<body style='background: #000;'>
+
+
+  <div id='static-loading-screen'>
+    <p>Application is loading...</p>
+  </div>
+
+  <div id="app" class="display-none"></div>
+
+
+
+        <div id="log_area" style="display:none;"></div>
+
+        <script type='text/javascript'>
+            function log(text) {
+//                $('#log_area').show();
+                $('#log_area').append('<p>' + text + '</p>');
+            }
+
+            require(
+                ['homeapp/appui/app'],
+                function(Application) {
+                    var onReady = function() {
+                        var staticLoadingScreen = document.getElementById('static-loading-screen');
+                        staticLoadingScreen.parentNode.removeChild(staticLoadingScreen);
+                    };
+
+log('1');
+//
+                    var baseUrl = 'http://192.168.100.251/';
+//		    var baseUrl = 'http://172.19.50.70/';
+                    var app;
+
+log('2');
+
+                    var templateJson = function() {
+
+log('3');
+
+                        $.ajax({
+                            url: baseUrl + 'iptv-info?tv_model=55LX774H-UA',
+                            type: "GET",
+                            datatype: "json",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (result) {
+log('4');
+
+                                templateResponse = result.data;
+                                templateResponse.templateName = 6;
+
+log('5');
+
+                                //TODO: temporal
+/*
+				templateResponse.channels = templateResponse.channels.map(function(channel) {
+                                    channel.image = channel.image.replace('http://192.168.100.251', 'http://172.19.50.70');
+                                    return channel;
+                                });
+
+                                templateResponse.hotelInfos = templateResponse.hotelInfos.map(function(hotelInfo) {
+                                    hotelInfo.image = hotelInfo.image.replace('http://192.168.100.251', 'http://172.19.50.70');
+                                    return hotelInfo;
+                                });
+
+                                templateResponse.experiences = [
+                                        { title: '', img: 'static/img/etereo/experiences/experiencia01.jpg' },
+                                        { title: '', img: 'static/img/etereo/experiences/experiencia02.jpg' },
+                                        { title: '', img: 'static/img/etereo/experiences/experiencia03.jpg' }
+                                ];
+
+                                templateResponse.guest = 'Shan Kanagasingham';
+                                templateResponse.guestRoom = '404';
+                                templateResponse.menuOptions.splice(templateResponse.menuOptions.length - 1, 0, {name: "experiences", type: "EXPERIENCE", appId: "0"});
+*/
+
+log('6');
+
+				
+                                templateResponse.menuOptions = templateResponse.menuOptions.filter(function(menuOption) {
+                                        return (menuOption.type != 'INFO' && menuOption.type != 'ROOM-SERVICE');
+                                });
+
+log('7');
+
+                                new Application(
+                                        document.getElementById('app'),
+                                        'static/style/',
+                                        'static/img/',
+                                        onReady
+                                    );
+                            },
+                            error: function(result){
+                                console.log(result);
+                            }
+                        });
+                    }
+
+                    templateJson();
+
+                }
+            );
+
+        </script>
+    </body>
+</html>

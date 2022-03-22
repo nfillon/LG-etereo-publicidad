@@ -1,0 +1,27 @@
+<XAIT>
+    <versionNumber>912</versionNumber>
+    <AbstractService>
+        <svcName>Pro:Centric App</svcName>
+        <svcId>0x1204</svcId>
+        <isAutoSelect>true</isAutoSelect>
+        <ApplicationList>
+            <Application>
+                <appName>app_v1</appName>
+                <applicationIdentifier>
+                    <orgId>999</orgId>
+                    <appId>999</appId>
+                </applicationIdentifier>
+                <applicationDescriptor>
+                    <type>Hcap-h</type>
+                    <controlCode>AUTOSTART</controlCode>
+                    <visibility>NOT_VISIBLE_USERS</visibility>
+                    <priority>255</priority>
+                    <version>912</version>
+                </applicationDescriptor>
+                <HcapDescriptor>
+                  <url>http://172.20.196.165:8080/procentric/application/etereo-lg-publicidad/index.html</url>
+                </HcapDescriptor>
+            </Application>
+        </ApplicationList>
+   </AbstractService>
+</XAIT>

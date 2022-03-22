@@ -1,0 +1,544 @@
+@font-face {
+    font-family: 'JosefinSans';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/template1/JosefinSans-Regular.ttf');
+}
+@font-face {
+    font-family: 'JosefinSans';
+    font-style: normal;
+    font-weight: 100;
+    src: url('../fonts/template1/JosefinSans-Thin.ttf');
+}
+@font-face {
+    font-family: 'JosefinSans';
+    font-style: normal;
+    font-weight: 200;
+    src: url('../fonts/template1/JosefinSans-Light.ttf');
+}
+@font-face {
+    font-family: 'JosefinSans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/template1/JosefinSans-SemiBold.ttf');
+}
+@font-face {
+    font-family: 'JosefinSans';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/template1/JosefinSans-Bold.ttf');
+}
+
+
+body {
+    font-family: "JosefinSans";
+}
+
+#app {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: url(../img/template1/ImagenHome.jpg) top center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/*#app { estilo defecto template 1*/
+    /*position: relative;*/
+    /*overflow: hidden;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*background: url(../../img/test-pool-background.jpg) no-repeat center center fixed;*/
+    /*!*background: url(../../img/background.jpg) no-repeat center center fixed;     *!*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: cover;*/
+/*}*/
+
+#navbarContainer {
+    position: absolute;
+    width: 100%;
+    bottom: 90px;
+    background: linear-gradient(0deg, rgba(1,1,1,1) 0%, rgba(0,0,0,0.908000700280112) 58%, rgba(0,0,0,0) 100%);
+}
+
+#logoImage {
+    position: absolute;
+    float: left;
+    top: 45px;
+    padding-left: 4%;
+    text-align: center;
+}
+
+#logoImage_img {
+    width: 100%;
+    height: auto;
+}
+
+#timeLabel {
+    font-size: 25px;
+    font-weight: normal;
+    padding-left: 35%;
+    width: 100%;
+    position: absolute;
+    top: 70%;
+    /*color: rgba(156, 142, 63, 0.7);*/
+}
+
+.day {
+    padding: 5px 10px;
+}
+
+.hour {
+    padding: 5px 10px;
+}
+
+.fullDate {
+    padding: 5px 10px;
+}
+
+#welcomeLabel {
+    position: relative;
+    float: right;
+    width: 25%;
+    top: 40px;
+    text-align: right;
+    background: none;
+    color: #ffff;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 5% 2%;
+}
+
+#greetingContainer {
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 2px;
+}
+
+#greetingLabel {
+    font-size: 45px;
+    font-weight: normal;
+    color: rgb(245, 174, 23);
+}
+
+#guestLabel {
+    padding: 0px;
+    font-weight: 200;
+    display: inline-flex;
+}
+
+#guestRoomLabel {
+    font-weight: 200;
+    /*color: rgb(245, 174, 23);*/
+}
+
+#sliderContainer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 0px;
+    background-color: black;
+}
+
+#mainMenuList {
+    background: transparent;
+    padding: 0px;
+    margin: auto;
+    width: fit-content;
+    min-width: 80%;
+    max-width: 100%;
+    display: table;
+}
+
+#mainMenuList img {
+    width: 100px;
+}
+
+#home-fa-component .listitem {
+    float: left;
+    padding: 8px 16px 60px 16px;
+    background-color: transparent;
+}
+
+#home-fa-component .buttonFocussed {
+    background: linear-gradient(0deg, rgba(245, 174, 23,1) 0%, rgba(245, 174, 23,0.91) 58%, rgba(245, 174, 23,0.12088585434173671) 100%);
+}
+
+#home-fa-component .button span.label {
+    font-size: 18px;
+    font-weight: 400;
+    color: #fefefe;
+}
+
+#languageComponent .buttonFocussed {
+    border-bottom: 5px solid rgba(245, 174, 23, 0.8);
+}
+
+#channelInfoContainer {
+    top: 15px;
+}
+
+#channel-preview-component #channelGuideContainer2_CarouselMask {
+    top: 15px;
+}
+
+/*** ROOM SERVICE ***/
+#roomservicecomponent {
+    /*
+    background: rgba(0,0,0, 0.8);
+    width: 100%;
+    height: 100%;
+    */
+    width: 100%;
+    height: 100%;
+    margin: 0% 0%;
+    background: rgba(17,17,17,0.8);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.75);
+
+}
+
+#roomservicecomponent #title {
+    margin: 0;
+    text-align: center;
+    padding: 10px;
+}
+
+#roomservicecomponent #products,
+#roomservicecomponent #categories,
+#roomservicecomponent #description,
+#roomservicecomponent #infocontainer,
+#roomservicecomponent #amount,
+#roomservicecomponent #price {
+    float: left;
+    width: 29%;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 1%;
+    margin: 1%;
+    height: 80%;
+    overflow: hidden;
+}
+
+#roomservicecomponent #description,
+#roomservicecomponent #amount,
+#roomservicecomponent #price {
+    width: 29%;
+    /*height: 50%;*/
+}
+
+#roomservicecomponent #description .listitem:last-child {
+    padding: 10px;
+    text-align: justify;
+    text-justify: inter-word;
+    color: #fff;
+    font-weight: normal;
+}
+
+#roomservicecomponent #price {
+    height: 6%;
+    color: #fff;
+}
+
+#roomservicecomponent #amount {
+    height: 6%;
+    color: #fff;
+}
+
+#roomservicecomponent .listitem {
+    /*TODO: todo esto para remover las propiedades que se dieron arriba */
+    display: block;
+    margin: 0;
+    text-align: left;
+    /*hasta aca*/
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+#roomservicecomponent #categories .listitem.label,
+#roomservicecomponent #products .listitem.label,
+#roomservicecomponent #infocontainer .listitem.label,
+#roomservicecomponent #description .listitem.label:first-child {
+    background: rgba(0, 0, 0, 0.3);
+    margin: -20px -20px 10px -20px;
+    padding: 20px 20px 10px 20px;
+    color: rgba(245, 174, 23, 1);
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+#roomservicecomponent #price #priceLabel,
+#roomservicecomponent #price #priceAmount {
+    padding: 0 10px 0 10px;
+    float: left;
+    width: 40%;
+    height: 100%;
+    line-height: 50px;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+#roomservicecomponent #price #priceAmount {
+    float: right;
+    text-align: right;
+}
+
+#roomservicecomponent .listitem:last-child {
+    margin-bottom: 0px;
+}
+
+#roomservicecomponent #categories .listitem.active {
+    background: rgba(245, 174, 23, 1);
+}
+
+#roomservicecomponent #products .listitem.focus,
+#roomservicecomponent #description .listitem.focus,
+#roomservicecomponent #categories .listitem.focus,
+#roomservicecomponent #infocontainer .listitem.focus {
+    background: rgba(245, 174, 23, 1);
+    color: #fff;
+    font-weight: normal;
+}
+
+#roomservicecomponent .category-breakfast,
+#roomservicecomponent .category-cold_hot_appetizers,
+#roomservicecomponent .category-soups,
+#roomservicecomponent .category-meats,
+#roomservicecomponent .category-poultry_and_fish {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/*#roomservicecomponent .category-breakfast {*/
+    /*background-image: url('../img/tequendama/roomservice-breakfast.png');*/
+/*}*/
+
+/*#roomservicecomponent .category-cold_hot_appetizers {*/
+    /*background-image: url('../img/tequendama/roomservice-cold-hot-appetizers.png');*/
+/*}*/
+
+/*#roomservicecomponent .category-soups {*/
+    /*background-image: url('../img/tequendama/roomservice-soups.png');*/
+/*}*/
+
+/*#roomservicecomponent .category-meats {*/
+    /*background-image: url('../img/tequendama/roomservice-meats.png');*/
+/*}*/
+
+/*#roomservicecomponent .category-poultry_and_fish {*/
+    /*background-image: url('../img/tequendama/roomservice-poultry-and-fish.png');*/
+/*}*/
+
+/*#roomservicecomponent .category-rice_and_pasta {*/
+    /*background-image: url('../img/tequendama/roomservice-rice-and-pasta.png');*/
+/*}*/
+
+#purchase-component {
+    background-color: rgba(127, 124, 120, 0.66);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#restaurantContainer {
+    width: 90%;
+    margin: 0px;
+    padding: 5%;
+}
+
+#priceAmount {
+    float: right;
+}
+
+#schedulerComponent {
+    background: rgba(17,17,17,0.8);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.75);
+    width: 50%;
+    /*height: 50%;*/
+    margin: 10% 25% 25% 25%;
+    font-size: 25px;
+    text-align: center;
+    position: absolute;
+    top: 0px;
+}
+
+#roomservicecomponent #schedulerComponent {
+    background: rgba(17,17,17,0.8);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.75);
+    width: 50%;
+    height: 50%;
+    margin: 10% 25% 25% 25%;
+    font-size: 25px;
+    text-align: center;
+    position: absolute;
+    top: 0px;
+}
+
+#addButton {
+    margin-top: 25% !important;
+    padding: 5%;
+    border: 1px solid;
+    text-align: center !important;
+    font-size: 20px;
+    bottom: 20%;
+    background-color: transparent;
+}
+
+#totalButton {
+    width: 18%;
+    height: 6%;
+    border: 1px solid;
+    text-align: center !important;
+    font-size: 20px;
+    position: absolute;
+    bottom: 3%;
+    background-color: transparent;
+    color: #fff;
+}
+
+[id^='cancel-'] {
+    float: right;
+    border: 1px solid;
+}
+
+[id^='orderinfo-'] {
+    font-size: 9px;
+}
+
+[id^='product-img-'] img{
+    width: 100%;
+    padding-bottom: 15px;
+    padding-top: 10px;
+}
+
+#totalAmount {
+    display: inline-flex;
+}
+
+#amountModifier {
+    width: 100%;
+    height: 3%;
+    padding: 20% 4% 0 4%;
+    background-color: transparent !important;
+}
+
+#minus, #plus {
+    display: inline !important;
+    padding: 5% 13% !important;
+    font-size: 25px;
+    font-weight: bolder;
+    color: black !important;
+}
+
+#amountPerProduct {
+    display: inline !important;
+    padding: 5% 13% !important;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+#navbarContainerFA, #appTitleContainer {
+    background-color: black;
+}
+
+.buttonFocussed {
+    background-color: rgba(245, 174, 23, 1);
+}
+
+#languageComponent .description {
+    font-weight: normal;
+    text-transform: uppercase;
+    color: white;
+}
+
+#languageComponent .button {
+    background-color: transparent;
+    color: white;
+    font-size: 15px;
+    font-weight: normal;
+    width: fit-content;
+}
+
+div[id^='appOption'].buttonFocussed {
+    border: 3px solid rgba(245, 174, 23, 1);
+}
+
+#roomservicecomponent .listitem .button {
+    color: black;
+    font-weight: normal;
+}
+
+#channelNumberContainer {
+    background-color: white;
+}
+
+#channelNameContainer {
+    color: white;
+}
+
+.previewInfoContainer {
+    padding: 4%;
+}
+
+.previewNumber {
+    color: black;
+}
+
+#roomserviceFooter {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 3px;
+    height: 10%;
+    background-color: black;
+    color: white;
+}
+
+#leftFooter {
+    width: 25%;
+    float: left;
+    padding: 2%;
+    font-weight: 400;
+    font-size: 21px;
+}
+
+#rightFooter {
+    width: 40%;
+    float: right;
+    text-align: right;
+    padding: 1% 2%;
+    font-size: 12px;
+}
+
+#normalInfo {
+    font-weight: 200;
+    display: inline;
+    padding: 1% 0% 1% 0%;
+    float: right;
+    width: 100%;
+}
+
+#boldInfo {
+    font-weight: normal;
+    width: 100%;
+    display: inline;
+}
+
+#roomservicecomponent #products .listitem,
+#roomservicecomponent #categories .listitem {
+    height: 8px;
+}

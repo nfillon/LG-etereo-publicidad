@@ -1,0 +1,759 @@
+@font-face {
+    font-family: 'SweetSansPro';
+    font-style: normal;
+    font-weight: 100;
+    src: url('../fonts/template6/SweetSansProLight.otf');
+}
+@font-face {
+    font-family: 'SweetSansPro';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/template6/SweetSansProRegular.otf');
+}
+@font-face {
+    font-family: 'SweetSansPro';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/template6/SweetSansProRegular.otf');
+}
+@font-face {
+    font-family: 'SweetSansPro';
+    font-style: normal;
+    font-weight: bold;
+    src: url('../fonts/template6/SweetSansProBold.otf');
+}
+@font-face {
+    font-family: 'SweetSansPro';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/template6/SweetSansProBold.otf');
+}
+
+@font-face {
+    font-family: 'Candlescript';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/template6/Candlescript Demo Version.otf');
+}
+
+@font-face {
+    font-family: 'AbhayaLibre';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/template6/AbhayaLibre-Regular.otf');
+}
+
+
+
+@font-face {
+    font-family: 'Hatton';
+    font-style: normal;
+    font-weight: 100;
+    src: url('../fonts/template6/etereo/Hatton-Ultralight.otf');
+}
+@font-face {
+    font-family: 'Hatton';
+    font-style: normal;
+    font-weight: 200;
+    src: url('../fonts/template6/etereo/Hatton-Light.otf');
+}
+@font-face {
+    font-family: 'Hatton';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/template6/etereo/Hatton-Regular.otf');
+}
+@font-face {
+    font-family: 'Hatton';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/template6/etereo/Hatton-Medium.otf');
+}
+@font-face {
+    font-family: 'Hatton';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/template6/etereo/Hatton-Semibold.otf');
+}
+
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 100;
+    src: url('../fonts/template6/etereo/Montserrat-Light.otf');
+}
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/template6/etereo/Montserrat-Regular.otf');
+}
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/template6/etereo/Montserrat-Bold.otf');
+}
+
+
+
+body {
+    font-family: "Antenna";
+}
+
+#app {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    /*background: url(../img/background-t5.jpg) no-repeat center center fixed;*/
+    /*background: url(../img/template5/7433.jpg) no-repeat center center fixed;*/
+    background: url(../img/etereo/inicio.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#mainContainer {
+    width: 100%;
+    height: 100%;
+    background: rgba(32, 32, 32, 0.25);
+}
+
+#modalContainer {
+    width: 100%;
+    height: 100%;
+    background: rgba(32, 32, 32, 0.65);
+}
+
+#playerContainer {
+    width: 49%;
+    float: right;
+    padding-top: 100px;  
+}
+
+#mediaPlayerVideo {
+    position: inherit !important;
+    width: 95% !important;
+    height: auto !important;
+}
+
+#navbarContainer {
+    width: 100%;
+    display: inline-flex;
+    height: 20%;
+/*
+    position: relative;
+*/
+    /*DEFINIR SI VAN LAS SOMBRAS*/
+    /*background: linear-gradient(0deg, rgba(17,17,17,0.12088585434173671) 0%, rgba(17,17,17,0.91) 58%, rgba(17,17,17,1) 100%);*/
+}
+
+#imageContainer { text-align: center; width: 25%; }
+    #logoImage, #logoImage_img { width: 80%; height: auto; margin-left: 50px; }
+
+
+#welcomeContainer { width: 100%; padding: 36px 0 20px 0; }
+    #welcomeLabel, #weatherLabel { background: none; text-align: center; font-size: 20px; text-transform: uppercase; }
+    #greetingLabel { font-family: Hatton; font-size: 38px; font-weight: 200; color: #fff; }
+    #guestRoomLabel { font-family: Montserrat; font-weight: 100; color: #ffffff; letter-spacing: 1.8; }
+    #guestLabel { color: #aa5f4d; display: inherit; font-size: 30px; font-weight: 600 ;}
+
+#timeContainer { width: 25%; padding: 30px 50px 20px 0;  }
+    #timeLabel { padding: 0px; display: block; text-align: right; width: 100%; } 
+    .hour { font-family: Hatton; font-size: 45px; font-weight: 200; text-transform: uppercase; }
+    .day, .fullDate { font-family: Hatton; font-size: 20px; font-weight: 100; text-transform: uppercase; display: inline; }
+
+    #timeNumber {
+        font-size: 60px;
+        font-weight: lighter;
+        color: white !important;
+    }
+
+
+#bodyContainer { width: 100%; padding: 55px 60px; }
+    #qrContainer { 
+        width: 30%; 
+        background: #fff;
+        box-shadow: 10px 10px 20px -1px rgba(0,0,0,0.8);
+        -webkit-box-shadow: 10px 10px 20px -1px rgba(0,0,0,0.8);
+        -moz-box-shadow: 10px 10px 20px -1px rgba(0,0,0,0.8);
+    }
+    #qrImage { text-align: center; padding: 0%; }
+    #qrImage, #qrImage_img { width: 80%; height: auto; margin: auto; padding: 10px 0 10px 0; }
+    #qrLabel { font-family: SweetSansPro; font-weight: bold; font-size: 12px; display: block; background: #fff; color: #bb968c; text-align: center; text-transform: uppercase; padding-bottom: 18px; }
+
+
+
+#sliderContainer {
+    font-family: SweetSansPro; 
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 20px 0px;
+    position: absolute;
+    /*DEFINIR SI VAN LAS SOMBRAS*/
+    /*bottom: 0px;*/
+    /*width: 100%;*/
+    /*padding: 0px 0px 20px 0px;*/
+    /*background: linear-gradient(0deg, rgba(17,17,17,1) 0%, rgba(17,17,17,0.91) 20%, rgba(17,17,17,0.12088585434173671) 50%);*/
+}
+
+#mainMenuList {
+    background: transparent;
+    padding: 0px;
+    margin: auto;
+    width: fit-content;
+/*    min-width: 80%;*/
+/*    max-width: 100%;*/
+    display: table;
+}
+
+#mainMenuList img {
+    width: 100px;
+}
+
+#home-5-component .listitem {
+    float: left;
+    border: 0px none transparent;
+    background-color: transparent;
+}
+
+#home-5-component .buttonFocussed {
+    background-color: transparent;
+    border: 0px none transparent;
+    border-bottom: 3px solid #aa5f4d;
+}
+
+#home-5-component .button span.label {
+    font-size: 12px;
+    color: #fefefe;
+}
+
+div[id^='widgetcontainer-']{
+    /*margin: 8% 8% 8% 0%;*/
+    /*min-width: 120px;*/
+    /*border-left: 1px solid rgba(17,17,17,0.8);*/
+    /*border-right: 1px solid rgba(17,17,17,0.8);*/
+    /*-webkit-box-shadow: 5px 0px 5px 3px rgba(51,51,51,0.75);*/
+    /*-moz-box-shadow: 5px 0px 5px 3px rgba(51,51,51,0.75);*/
+    /*box-shadow: 5px 0px 5px 3px rgba(51,51,51,0.75);*/
+}
+
+#languageComponent {
+    background: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    width: 70%;
+    height: 60%;
+    margin: 9% 25% 25% 50%;
+    font-size: 25px;
+    text-align: center;
+    position: absolute;
+    top: 32px;
+}
+
+#languageComponent .description {
+    font-family: SweetSansPro;
+    color: #fff;
+    font-weight: 100;
+}
+
+#languageComponent .button {
+    background-color: rgba(17,17,17,0.55);
+    color: white;
+    font-family: SweetSansPro;
+    font-weight: 100;
+    font-size: 12px;
+}
+
+#languageComponent .buttonFocussed {
+    background: rgba(170, 95, 77, 0.9);
+}
+
+#channelInfoContainer { top: 90px; height: 70%;         box-shadow: 10px 10px 20px -1px rgba(0,0,0,0.8);
+        -webkit-box-shadow: 10px 10px 20px -1px rgba(0,0,0,0.8);
+        -moz-box-shadow: 10px 10px 20px -1px rgba(0,0,0,0.8);
+}
+
+#channel-preview-component #channelGuideContainer2_CarouselMask { top: 90px; height: 70%;         box-shadow: 10px 10px 20px -1px rgba(0,0,0,0.8);
+        -webkit-box-shadow: 10px 10px 20px -1px rgba(0,0,0,0.8);
+        -moz-box-shadow: 10px 10px 20px -1px rgba(0,0,0,0.8);
+}
+
+#channelNumberContainer { background-color: #aa5f4d; padding-bottom: 3%; }
+
+#previewContainer {
+    top: 80px;
+}
+
+#channelNameContainer {
+    padding-top: 4%;
+}
+
+#channel-preview-component div[id^='channel-'] {
+    margin: 9px 7px;
+}
+
+.carouselwidgetstrip {
+    padding-top: 15px !important;
+}
+
+#carouselComponent {
+    /*no esta definido el template con channels sin preview
+    esto es temporario, en el caso que se pida el componente
+    se debe mejorar */
+    top: 46px;
+    position: absolute;
+    width: 93%;
+    left: -15px;
+    height: 108%;
+}
+
+#labelAppsContainer {
+    color: rgb(57, 147, 158);
+    font-weight: normal;
+}
+
+.buttonFocussed {
+    background-color: #aa5f4d; /*rgb(57, 147, 158); */
+    color: #ffffff;
+}
+
+div[id^='appOption'].buttonFocussed {
+    border: 3px solid rgb(57, 147, 158);
+    border-radius: 20px;
+    background-color: transparent;
+}
+
+#purchase-component .listitem, #appscomponent .listitem {
+    width: auto;
+    height: 12%;
+    margin: 0 15px 0 15px;
+}
+
+img[id^='app-img-'] {
+    height: 100%;
+    border-radius: 20px;
+}
+
+div[id^='app-img-'] {
+    background-color: transparent;
+}
+
+/*** ROOM SERVICE ***/
+#roomservicecomponent {
+    /*
+    background: rgba(0,0,0, 0.8);
+    width: 100%;
+    height: 100%;
+    */
+    background: url(../img/template6/room-service-backgroound.jpg) no-repeat center center fixed;
+    width: 100%;
+    height: 100%;
+    margin: 0% 0%;
+    /*background: rgba(17,17,17,0.5);
+    */
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.75);
+
+}
+
+#roomservicecomponent #title {
+    margin: 0;
+    text-align: center;
+    padding: 10px;
+}
+
+#roomservicecomponent #roomServiceContainer {
+    padding: 15px 15px 0 15px;
+}
+
+#roomservicecomponent #products,
+#roomservicecomponent #categories,
+#roomservicecomponent #description,
+#roomservicecomponent #infocontainer,
+#roomservicecomponent #amount,
+#roomservicecomponent #price {
+    float: left;
+    width: 29%;
+    border: 1px solid #000;
+    padding: 1%;
+    margin: 1%;
+    height: 80%;
+    overflow: hidden;
+}
+/*
+#roomservicecomponent #description {
+    height: 60%;
+}
+*/
+#roomservicecomponent #contactlessRoomService {
+    position: absolute;
+    top: 65%;
+    right: 20px;
+    padding: 1%;
+    width: 29%;
+    height: 30%;
+    text-align: center;
+}
+
+#roomservicecomponent #contactless-room-service-qr {
+    margin: 0px 40px 40px 40px;
+    padding: 15px 40px 20px 40px;
+    background: rgba(6, 6, 6, 0.2);
+}
+#roomservicecomponent #contactlessRoomService img {
+    width: 60%;
+
+}
+
+#roomservicecomponent #description,
+#roomservicecomponent #amount,
+#roomservicecomponent #price {
+    width: 29%;
+    /*height: 50%;*/
+}
+
+#roomservicecomponent #description .listitem:last-child {
+    padding: 10px;
+    text-align: justify;
+    text-justify: inter-word;
+    color: #fff;
+}
+
+#roomservicecomponent #price {
+    height: 6%;
+    color: #fff;
+}
+
+#roomservicecomponent #amount {
+    height: 6%;
+    color: #fff;
+}
+
+#roomservicecomponent .listitem {
+    /*TODO: todo esto para remover las propiedades que se dieron arriba */
+    display: block;
+    margin: 0;
+    text-align: left;
+    /*hasta aca*/
+    margin-bottom: 5px;
+    color: white;
+    background-color: rgba(6, 6, 6, 0.2);
+    font-family: SweetSansPro; 
+}
+
+#roomservicecomponent #categories .listitem.label,
+#roomservicecomponent #products .listitem.label,
+#roomservicecomponent #infocontainer .listitem.label,
+#roomservicecomponent #description .listitem.label:first-child {
+    font-family: SweetSansPro; 
+    font-weight: bold;
+    background: black;
+    margin: -20px -20px 10px -20px;
+    padding: 20px 20px 10px 20px;
+    color: #aa5f4d;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+#roomservicecomponent #price #priceLabel,
+#roomservicecomponent #price #priceAmount {
+    padding: 0 10px 0 10px;
+    float: left;
+    width: 40%;
+    height: 100%;
+    line-height: 50px;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+#roomservicecomponent #price #priceAmount {
+    float: right;
+    text-align: right;
+}
+
+#roomservicecomponent .listitem:last-child {
+    margin-bottom: 0px;
+}
+
+#roomservicecomponent #categories .listitem.active {
+    background: #aa5f4d;
+    font-weight: bold;
+    color: white;
+}
+
+#roomservicecomponent #products .listitem.focus,
+#roomservicecomponent #description .listitem.focus,
+#roomservicecomponent #categories .listitem.focus,
+#roomservicecomponent #infocontainer .listitem.focus {
+    background: #aa5f4d;
+    color: #fff;
+    font-weight: bold;
+}
+
+#roomservicecomponent .category-breakfast,
+#roomservicecomponent .category-cold_hot_appetizers,
+#roomservicecomponent .category-soups,
+#roomservicecomponent .category-meats,
+#roomservicecomponent .category-poultry_and_fish {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/*#roomservicecomponent .category-breakfast {*/
+/*background-image: url('../img/tequendama/roomservice-breakfast.png');*/
+/*}*/
+
+/*#roomservicecomponent .category-cold_hot_appetizers {*/
+/*background-image: url('../img/tequendama/roomservice-cold-hot-appetizers.png');*/
+/*}*/
+
+/*#roomservicecomponent .category-soups {*/
+/*background-image: url('../img/tequendama/roomservice-soups.png');*/
+/*}*/
+
+/*#roomservicecomponent .category-meats {*/
+/*background-image: url('../img/tequendama/roomservice-meats.png');*/
+/*}*/
+
+/*#roomservicecomponent .category-poultry_and_fish {*/
+/*background-image: url('../img/tequendama/roomservice-poultry-and-fish.png');*/
+/*}*/
+
+/*#roomservicecomponent .category-rice_and_pasta {*/
+/*background-image: url('../img/tequendama/roomservice-rice-and-pasta.png');*/
+/*}*/
+
+#purchase-component {
+    background-color: rgba(127, 124, 120, 0.66);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#restaurantContainer {
+    width: 90%;
+    margin: 0px;
+    padding: 5%;
+}
+
+#priceAmount {
+    float: right;
+}
+
+#schedulerComponent {
+    background: rgba(17,17,17,0.8);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.75);
+    width: 50%;
+    /*height: 50%;*/
+    margin: 10% 25% 25% 25%;
+    font-size: 25px;
+    text-align: center;
+    position: absolute;
+    top: 0px;
+}
+
+#roomservicecomponent #schedulerComponent {
+    background: rgba(17,17,17,0.8);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.75);
+    width: 50%;
+    height: 50%;
+    margin: 10% 25% 25% 25%;
+    font-size: 25px;
+    text-align: center;
+    position: absolute;
+    top: 0px;
+}
+
+#addButton {
+    margin-top: 25% !important;
+    padding: 5%;
+    border: 1px solid;
+    text-align: center !important;
+    font-size: 20px;
+    bottom: 20%;
+    background-color: transparent;
+}
+
+#totalButton {
+    width: 18%;
+    height: 6%;
+    border: 1px solid;
+    text-align: center !important;
+    font-size: 20px;
+    position: absolute;
+    bottom: 3%;
+    background-color: transparent;
+    color: #fff;
+}
+
+[id^='cancel-'] {
+    float: right;
+    border: 1px solid;
+}
+
+[id^='orderinfo-'] {
+    font-size: 9px;
+}
+
+[id^='product-img-'] img{
+    width: 100%;
+    padding-bottom: 15px;
+    padding-top: 10px;
+}
+
+#totalAmount {
+    display: inline-flex;
+}
+
+#amountModifier {
+    width: 100%;
+    height: 3%;
+    padding: 20% 4% 0 4%;
+    background-color: transparent !important;
+}
+
+#minus, #plus {
+    display: inline !important;
+    padding: 5% 13% !important;
+    font-size: 25px;
+    font-weight: bolder;
+    color: black !important;
+}
+
+#amountPerProduct {
+    display: inline !important;
+    padding: 5% 13% !important;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+
+#channelNameContainer {
+    font-family: SweetSansPro;
+    color: white;
+}
+
+.previewInfoContainer {
+    padding: 4%;
+}
+
+.previewChannel {
+    float: right;
+    width: 48%;
+    text-align: right;
+}
+
+.previewNumber {
+    float: left;
+    text-align: left;
+    width: 48%;
+    font-family: SweetSansPro;
+    font-weight: 100;
+    font-size: 52px;
+    /* position: relative; */
+    color: #fff;
+    padding: 0px;
+    margin: 0px;
+    line-height: 22px;
+}
+
+#roomserviceFooter {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 3px;
+    height: 10%;
+    background-color: black;
+    color: #fff;
+    font-family: SweetSansPro;
+}
+
+#leftFooter {
+    width: 25%;
+    float: left;
+    padding: 2%;
+    font-weight: 400;
+    font-size: 21px;
+}
+
+#rightFooter {
+    width: 40%;
+    float: right;
+    text-align: right;
+    padding: 1% 3%;
+    font-size: 12px;
+}
+
+#normalInfo {
+    font-weight: 200;
+    display: inline;
+    padding: 1% 0% 1% 0%;
+    float: right;
+    width: 100%;
+}
+
+#boldInfo {
+    font-weight: normal;
+    width: 100%;
+    display: inline;
+}
+/*
+#roomservicecomponent #products .listitem,
+#roomservicecomponent #categories .listitem {
+    height: 8px;
+}
+*/
+
+
+#informationContainerFA,
+#hotelservicecomponent-fa { font-family: SweetSansPro; }
+#infoHotelContainer { color:  rgb(212, 212, 212); font-weight: normal; }
+
+#hotelservicecomponent-fa .button span.label { font-family: SweetSansPro; color: #fff; font-weight: normal; }
+#hotelservicecomponent-fa h2 { color: #fff; font-weight: normal; font-size: 36px; }
+
+#experienceComponent { width: 100%; height: 100%; color: #fff; }
+
+#experienceComponent #pageControl { width: 20%; top: 0px; float: right; right: 20px; padding: 100px 20px; }
+
+#experienceComponent #pageControl .listitem { display: inherit; }
+#experienceComponent #pageControl #carrouselControl .listitem { display: inline-block; }
+
+#experienceComponent #pageControl #carrouselControl { position: absolute; bottom: 10px; margin: auto; left: 0; right: 0; }
+
+#experienceComponent #pageControl #replayButton { background: rgba(255,255,255,0.4);  color: #ffffff; font-family: 'SweetSansPro'; text-transform: uppercase; font-size: 10px; border-radius: 150px; width: 150px; height: 150px; }
+#experienceComponent #pageControl #replayImage { width: 62%; margin: auto; margin-top: 20px; margin-bottom: 10px; }
+#experienceComponent #pageControl #replayImage_img { width: 70px; }
+#experienceComponent #pageControl #exitButton { background: rgba(255,255,255,0.4); color: #fff; font-family: 'SweetSansPro'; text-transform: uppercase; font-size: 24px; border-radius: 20px; }
+
+#experienceComponent #pageControl #replayButton.buttonFocussed,
+#experienceComponent #pageControl #exitButton.buttonFocussed { background: rgba(170, 95, 77, 0.8); }
+
+#experienceComponent #welcomeContainer { width: 75%; padding: 36px 50px 20px 0; text-align: right; font-family: SweetSansPro; }
+#experienceComponent #welcomeContainer #welcomeRow1Container { font-family: Hatton; font-size: 40px; letter-spacing: 1.7; }
+#experienceComponent #welcomeContainer #welcomeRow2Container { font-family: Candlescript; font-size: 58px; }
+
+#experienceComponent #thankYouMessageContainer { text-align: center; color: #fff; font-family: Montserrat; padding-bottom: 40px; }
+#experienceComponent #thankYouMessageContainer #thankYouMessageRow1Container { font-family: Hatton; font-size: 42px; letter-spacing: 1.7; font-weight: bolder; text-transform: uppercase; }
+#experienceComponent #thankYouMessageContainer #thankYouMessageRow2Container { text-transform: uppercase; letter-spacing: 1.7; padding-bottom: 6px; }
+#experienceComponent #thankYouMessageContainer #thankYouMessageRow3Container { font-family: Hatton; letter-spacing: 3.7; text-transform: uppercase; font-weight: 300;}
+
+#experienceComponent #carrouselControl { text-align: center; }
+#experienceComponent #carrouselControl .button { margin: 5px; border-radius: 10px; padding: 10px; background: #9f9c9b; } 
+#experienceComponent #carrouselControl .buttonFocussed { background: #aa5f4d; }
+
+
+
